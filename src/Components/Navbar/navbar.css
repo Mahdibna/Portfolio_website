@@ -1,0 +1,281 @@
+
+*{padding:0;
+    margin:0;
+    box-sizing: border-box;
+    }
+    .menu {
+    --s: 30px;
+    display:none;
+    height: var(--s);
+    aspect-ratio: 1;
+    border: none;
+    padding: 0;
+    border-inline: calc(var(--s)/2) solid #0000; 
+    box-sizing: content-box;
+    --_g1: linear-gradient(var(--c) 20%,#0000 0 80%,var(--c) 0) 
+           no-repeat content-box border-box;
+    --_g2: radial-gradient(circle closest-side at 50% 12.5%,var(--c) 95%,#0000) 
+           repeat-y content-box border-box;
+    background: 
+      var(--_g2) left  var(--_p,0px) top,
+      var(--_g1) left  calc(var(--s)/10 + var(--_p,0px)) top,
+      var(--_g2) right var(--_p,0px) top,
+      var(--_g1) right calc(var(--s)/10 + var(--_p,0px)) top;
+    background-size: 
+      20% 80%,
+      40% 100%;
+    position: relative;
+    clip-path: inset(0 25%);
+    -webkit-mask: linear-gradient(90deg,#0000,#000 25% 75%,#0000);
+    cursor: pointer;
+    transition: 
+      background-position .3s var(--_s,.3s), 
+      clip-path 0s var(--_s,.6s);
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+  }
+  .menu:before,
+  .menu:after {
+    content:"";
+    position: absolute;
+    border-radius: var(--s);
+    inset: 40% 0;
+    background: var(--c);
+    transition: transform .3s calc(.3s - var(--_s,.3s));
+    -webkit-border-radius:;
+    -moz-border-radius:;
+    -ms-border-radius:;
+    -o-border-radius:;
+}
+  .menu:checked {
+    clip-path: inset(0);
+    --_p: calc(-1*var(--s));
+    --_s: 0s;
+  }
+  .menu:checked:before {
+    transform: rotate(45deg);
+  }
+  .menu:checked:after {
+    transform: rotate(-45deg);
+  }
+  .menu:focus-visible {
+    clip-path: none;
+    -webkit-mask: none;
+    border: none;
+    outline: 2px solid var(--c);
+    outline-offset: 5px;
+  }
+    .nav a{
+    font-weight:   500;
+    font-size: 16px;   
+    font-family: "Basier Square", sans-serif;
+    letter-spacing: -0.128px;
+    line-height: 24px;
+    transition:all .2s;
+    cursor:pointer;
+    background-image: linear-gradient( to right,rgb(219, 216, 223), rgb(219, 216, 223) 50%,      rgb(219, 216, 223) 50%    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px ;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    }
+
+    .nav div.child_nav{
+        display:flex;
+        gap:26px;
+        padding: 10px 15px;
+        justify-content: start;
+    }
+    .nav{
+         position: fixed;
+         top:10px;
+         z-index: 10;
+         width:100%;
+         background-color: transparent;
+         box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+         display:flex;
+         align-items: center;
+         justify-content: center;
+         padding:0 20px;
+         transition:all .5s        ;
+         -webkit-transition:all .5s        ;
+         -moz-transition:all .5s        ;
+         -ms-transition:all .5s        ;
+         -o-transition:all .5s        ;
+}
+    .background:is(:has(input#darkmode-toggle:checked)) .nav{
+      box-shadow: 0 2px 2px -2px white;
+    }
+    .dark_light{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .nav a:before {
+      content: '';
+      background:rgb(219, 216, 223);
+      display: block;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      transition: all 0.3s ease-in-out;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+  }
+  .background:is(:has(input#darkmode-toggle:checked)) a:hover{
+    background-image: linear-gradient(      to right,      white,      white 50%,      #989898 50%    );
+  
+  }
+  .background:is(:has(input#darkmode-toggle:checked)) a:hover::before{
+    background-color: #F3F3F3;
+  }
+    .nav a:hover {
+     background-position: 0;
+  
+    }
+    
+    .nav a:hover::before {
+      width:100%;
+    }
+    label {
+      width:50px;
+      height:19px;
+      position: relative;
+      display: block;
+      background: #ffffff;
+      border-radius: 200px;
+      box-shadow: inset 0px 5px 15px #cbcbcb, inset 0px -5px 15px #aaaaaa;
+      cursor: pointer;
+    }
+    label:after {
+      content: "";
+      width:16px;
+      height: 16px;
+      position: absolute;
+      top: 1.3px;
+      left:2px;
+      background: linear-gradient(180deg,#ffcc89,#d8860b);
+      border-radius: 50%;
+      box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+  }
+    input#darkmode-toggle {
+      width: 0;
+      height: 0;
+      visibility: hidden;
+    }
+    input#darkmode-toggle:checked + label {
+      background: #242424;
+    }
+    input#darkmode-toggle:checked + label:after {
+      transform: translateX(170%);
+      background: linear-gradient(180deg,#777,#646464);
+      -webkit-transform: translateX(170%);
+      -moz-transform: translateX(170%);
+      -ms-transform: translateX(170%);
+      -o-transform: translateX(170%);
+}
+    label, label:after {
+      transition: 0.3s  ;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+      -ms-transition: 0.3s;
+      -o-transition: 0.3s;
+  }
+    .background {
+      width:100vw;
+      height: 100vh;
+      background: #fff;
+      z-index: -1;
+      position: absolute;
+      transition: 0.3s;
+    }
+    .background:is(:has(input#darkmode-toggle:checked)){
+      background:#242424;
+    }
+    label svg {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      top:1.4px;
+      z-index: 100;
+    }
+    label svg.sun {
+      right:33px;
+      fill:#fff;
+      transition: 0.3s;
+    }
+    label svg.moon {
+      right:4px;
+      fill:#7e7e7e;
+      transition: 0.3s;
+    }
+    input#darkmode-toggle:checked + label svg.sun {
+      fill:#7e7e7e;
+      opacity:0;
+      
+    }
+    input#darkmode-toggle+ label svg.moon {
+      opacity: 0;
+    }
+    input#darkmode-toggle:checked + label svg.moon {
+      fill:#fff;
+      opacity:1;
+    }
+    .nav a.focus{
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      font-weight: 700;
+}
+    @media (max-width:700px) {
+      .menu{
+        display: block;
+      }
+      .nav{
+        height:54px;
+        position: relative;
+      }
+      .child_nav a{
+        display:none;
+      }
+      .nav:is(:has(.menu:checked)) a{
+        display: block;
+      }
+      .child_nav{
+        position: absolute;
+        flex-direction:column;
+          justify-content: end;
+          width:100vw;
+          align-items: center;
+          top:100%;
+  
+      }
+    }
+    .hide{
+      transform:translateY(-100%)    ;
+      -webkit-transform:translateY(-100%)    ;
+      -moz-transform:translateY(-100%)    ;
+      -ms-transform:translateY(-100%)    ;
+      -o-transform:translateY(-100%)    ;
+}

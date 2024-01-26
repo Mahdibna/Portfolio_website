@@ -1,0 +1,124 @@
+.Style_Switcher {
+    width: 220px;
+    left: 0;
+    top: 10%;
+    background-color:white;
+    padding: 15px;
+    z-index: 10;
+    box-shadow: hsl(0, 0, 80%);
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+    position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.Show_switcher {
+    transform: translateX(0);
+}
+
+.Style_Switcher,
+.theme_toggler {
+    border-radius: 0 5px 5px 0;
+}
+.theme_toggler {
+    position: absolute;
+    display: grid;
+}
+
+.style_switcher_item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 4px;
+    row-gap: 8px;
+}
+
+.theme_toggler,
+.Switcher_title,
+.Switcher_Close {
+    color: hsl(0, 0, 40%);
+}
+
+.Switcher_title {
+    font-size: 15px;
+    font-weight: var(--weight-600);
+    border-bottom: 1px solid hsl(0, 0, 87%);
+    margin-bottom: 10px;
+    font-family: "Basier Square" , sans-serif;
+}
+.theme_toggler {
+    width: 50px;
+    height: 50px;
+    left: 100%;
+    background-color: var(--text-white);
+    font-size: var(--large-font-size);
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 2px hsl(0, 0, 80%);
+    transition: all 0.3s ease;
+    background-color: rgb(232, 232, 232);
+}
+.Switcher_icon:not(.theme_toggler:hover>.Switcher_icon) {
+    animation: rotate 3s infinite linear;  
+}
+ 
+ @keyframes rotate {
+     0% {
+         transform: rotate(10deg);
+         -webkit-transform: rotate(10deg);
+         -moz-transform: rotate(10deg);
+         -ms-transform: rotate(10deg);
+         -o-transform: rotate(10deg);
+}
+     100% {
+         transform: rotate(360deg);
+     }
+ }
+ 
+ /* For compatibility with older versions of WebKit browsers (like Safari) */
+ @-webkit-keyframes rotate {
+     0% {
+         -webkit-transform: rotate(0deg);
+     }
+     100% {
+         -webkit-transform: rotate(360deg);
+     }
+ }
+ 
+.Show_switcher .theme_toggler {
+    left: -100%;
+}
+
+.Switcher_Close {
+    cursor: pointer;
+    position: absolute;
+    font-size: 20px;
+    top: 2%;
+    right: 15px;
+
+}
+
+.theme_img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:576px) {
+    .theme_img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .theme_toggler {
+        width: 40px;
+        height: 40px;
+    }
+
+    .Style_Switcher {
+        top: 15%;
+    }
+
+    .Switcher_Close {
+        top: 5%;
+    }
+}
