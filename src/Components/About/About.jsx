@@ -24,7 +24,7 @@ function About() {
               <Info />
             </ul>
             <Link
-              to="https://storage.googleapis.com/rezi-temp-download/0.cv48y79hv81700744457.pdf"
+              to="#"
               className="Download-button"
               target="_blank"
               data-tooltip="CV"
